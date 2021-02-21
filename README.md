@@ -3,7 +3,7 @@
 ## Introduction
 
 This is a basic database scheme with users, problems(tickets), projects, role_types, problem_types, and status types. 
-This Java Spring REST API application willprovide the data modeling to support the project management system 8-up.
+This Java Spring REST API application will provide the data modeling to support the project management system 8-up.
 
 ### Database layout
 
@@ -65,18 +65,17 @@ The table layouts are as follows:
     * Problems has a Many to One relationship to Problem_Types and
     * Problem_Types has a One to Many relationship to Problems
 
-* Problems has a foreign key to Project_Id this means:
+* Problems has a foreign key to Projects this means:
     * Problems has a Many to One relationship to Project_Id and
     * Project_Id has a One to Many relationship to Problems 
 
-* Problems has a foreign key to Project_Manager_Id this means:
+* Problems has a foreign key to Users this means:
     * Problems has a Many to One relationship to Project_Manager_Id and
     * Project_Manager_Id has a One to Many relationship to Problems 
-
-* Problems has a foreign key to Developer_Id this means:
+      &
     * Problems has a Many to One relationship to Developer_Id and
     * Developer_Id has a One to Many relationship to Problems 
 
-* Problems has a foreign key to Status_Type_Id this means:
+* Problems has a foreign key to Status_Types this means:
     * Problems has a Many to One relationship to Status_Type_Id and
     * Status_Type_Id has a One to Many relationship to Problems 
