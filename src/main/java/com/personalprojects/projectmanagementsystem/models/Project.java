@@ -24,8 +24,8 @@ public class Project extends Auditable
      * List of problems associated with this project. Does not get save in the database
      * Forms a One-to-Many relationship with Problems. One project to many problems
      */
-    @OneToMany(mappedBy = "problem", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonIgnoreProperties(value = "problem", allowSetters = true)
+    @OneToMany(mappedBy = "project", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnoreProperties(value = "project", allowSetters = true)
     private List<Problem> problems = new ArrayList<>();
 
     //Constructors

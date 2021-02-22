@@ -22,8 +22,8 @@ public class ProblemType
      * List of problems associated with this problemtype. Does not get saved in the database
      * Forms a One-to-Many relationship with Problems. One problem type to many problems
      */
-    @OneToMany(mappedBy = "problem", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonIgnoreProperties(value = "problem", allowSetters = true)
+    @OneToMany(mappedBy = "problemtype", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnoreProperties(value = "problemtype", allowSetters = true)
     private List<Problem> problems = new ArrayList<>();
 
     // Constructors

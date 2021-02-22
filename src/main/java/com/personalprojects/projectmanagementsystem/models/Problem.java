@@ -44,19 +44,9 @@ public class Problem extends Auditable
      * Contains a object pointer to the full problem object
      */
     @ManyToOne
-    @JoinColumn(name = "projectmanagerid", nullable = false)
+    @JoinColumn(name = "userid", nullable = false)
     @JsonIgnoreProperties(value = "problems", allowSetters = true)
-    private Problem projectmanager;
-
-    /**
-     * A foreign key to user table
-     * Forms a Many-to_one relationship with the users table, Many problems to one user
-     * Contains a object pointer to the full problem object
-     */
-    @ManyToOne
-    @JoinColumn(name = "developerid", nullable = false)
-    @JsonIgnoreProperties(value = "problems", allowSetters = true)
-    private Problem developer;
+    private Problem userrole;
 
     /**
      * A foreign key to status type table
@@ -81,20 +71,18 @@ public class Problem extends Auditable
         String problemdescription,
         Problem problemtype,
         Problem project,
-        Problem projectmanager,
-        Problem developer,
+        Problem userrole,
         Problem status)
     {
         this.problemname = problemname;
         this.problemdescription = problemdescription;
         this.problemtype = problemtype;
         this.project = project;
-        this.projectmanager = projectmanager;
-        this.developer = developer;
+        this.userrole = userrole;
         this.status = status;
     }
 
-    // Getters and Setters
+    // getters and setters
 
 
     public long getProblemid()
@@ -147,24 +135,14 @@ public class Problem extends Auditable
         this.project = project;
     }
 
-    public Problem getProjectmanager()
+    public Problem getUserrole()
     {
-        return projectmanager;
+        return userrole;
     }
 
-    public void setProjectmanager(Problem projectmanager)
+    public void setUserrole(Problem userrole)
     {
-        this.projectmanager = projectmanager;
-    }
-
-    public Problem getDeveloper()
-    {
-        return developer;
-    }
-
-    public void setDeveloper(Problem developer)
-    {
-        this.developer = developer;
+        this.userrole = userrole;
     }
 
     public Problem getStatus()

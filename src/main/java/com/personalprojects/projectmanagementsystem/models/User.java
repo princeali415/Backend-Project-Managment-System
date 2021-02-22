@@ -39,8 +39,8 @@ public class User extends Auditable
      * List of problems associated with this user. Does not get save in the database
      * Forms a One-to-Many relationship with problems. One user to many problems
      */
-    @OneToMany(mappedBy = "problem", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonIgnoreProperties(value = "problem", allowSetters = true)
+    @OneToMany(mappedBy = "userrole", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnoreProperties(value = "userrole", allowSetters = true)
     private List<Problem> problems = new ArrayList<>();
 
     // Constructors

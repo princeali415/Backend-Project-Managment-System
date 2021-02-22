@@ -22,8 +22,8 @@ public class StatusType
      * List of problems associated with this status type. Does not get save in the database
      * Forms a One-to-Many relationship with Problems. One status type to many problems
      */
-    @OneToMany(mappedBy = "problem", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonIgnoreProperties(value = "problem", allowSetters = true)
+    @OneToMany(mappedBy = "status", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnoreProperties(value = "status", allowSetters = true)
     private List<Problem> problems = new ArrayList<>();
 
     // Constructor

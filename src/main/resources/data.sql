@@ -1,20 +1,20 @@
 DELETE
-FROM problems
+FROM problems;
 
 DELETE
-FROM users
+FROM projects;
 
 DELETE
-FROM projects
+FROM users;
 
 DELETE
-FROM problemtypes
+FROM statustypes;
 
 DELETE
-FROM roletypes
+FROM problemtypes;
 
 DELETE
-FROM statustypes
+FROM roletypes;
 
 INSERT INTO roletypes (roletypeid, roletype)
 VALUES (1, 'Project Manager'),
@@ -47,17 +47,17 @@ VALUES (1, '8-up Project Management System', 'lean pms for developers', 'SYSTEM'
        (2, 'Anywhere-Fitness', 'online fitness class', 'SYSTEM', CURRENT_TIMESTAMP, 'SYSTEM', CURRENT_TIMESTAMP),
        (3, 'Co-Make', 'community forum', 'SYSTEM', CURRENT_TIMESTAMP, 'SYSTEM', CURRENT_TIMESTAMP);
 
-INSERT INTO problems (problemid, problemname, problemdescription, problemtypeid, projectid, projectmanagerid,
-                      developerid, statustypeid, createdby, createddate, lastmodifiedby, lastmodifieddate)
-VALUES (1, 'fix kanban component', 'kanban component wont drag n drop', 1, 1, 1, 2, 1, 'SYSTEM', CURRENT_TIMESTAMP,
-        'SYSTEM', CURRENT_TIMESTAMP),
-       (2, 'style error home page', 'section has border, take it off', 1, 1, 1, 3, 2, 'SYSTEM', CURRENT_TIMESTAMP,
-        'SYSTEM', CURRENT_TIMESTAMP );
+-- INSERT INTO problems (problemid, problemname, problemdescription, problemtypeid, projectid, userid, statustypeid,
+--                       createdby, createddate, lastmodifiedby, lastmodifieddate)
+-- VALUES (1, 'fix kanban component', 'kanban component wont drag n drop', 1, 1, 2, 1, 'SYSTEM', CURRENT_TIMESTAMP,
+--         'SYSTEM', CURRENT_TIMESTAMP),
+--        (2, 'style error home page', 'section has border take it off', 1, 1, 3, 2, 'SYSTEM', CURRENT_TIMESTAMP,
+--         'SYSTEM', CURRENT_TIMESTAMP);
 
 /*
 We must tell hibernate the ids that have already been used.
 The number must be larger than the last used id.
-10 > 5 so we are good!
+20 > 5 so we are good!
  */
 
-alter sequence hibernate_sequence restart with 10;
+alter sequence hibernate_sequence restart with 20;
