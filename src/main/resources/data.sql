@@ -52,7 +52,7 @@ VALUES (1, '8-up Project Management System', 'lean pms for developers', 'SYSTEM'
 -- VALUES (1, 'fix kanban component', 'kanban component wont drag n drop', 1, 1, 2, 1, 'SYSTEM', CURRENT_TIMESTAMP,
 --         'SYSTEM', CURRENT_TIMESTAMP),
 --        (2, 'style error home page', 'section has border take it off', 1, 1, 3, 2, 'SYSTEM', CURRENT_TIMESTAMP,
---         'SYSTEM', CURRENT_TIMESTAMP);
+--         'SYSTEM', CURRENT_TIMESTAMP); 
 
 /*
 We must tell hibernate the ids that have already been used.
