@@ -4,6 +4,8 @@ package com.personalprojects.projectmanagementsystem.models;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Entity
@@ -33,6 +35,14 @@ public class User extends Auditable
 
     private String password;
 
+    /**
+     * List of problems associated with this user. Does not get save in the database
+     * Forms a One-to-Many relationship with problems. One user to many problems
+     */
+    @OneToMany(mappedBy = "problem", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnoreProperties(value = "problem", allowSetters = true)
+    private List<Problem> problems = new ArrayList<>();
+
     // Constructors
 
 
@@ -42,13 +52,11 @@ public class User extends Auditable
     }
 
     public User(
-        long userid,
         String username,
         User user,
         String email,
         String password)
     {
-        this.userid = userid;
         this.username = username;
         this.user = user;
         this.email = email;
@@ -105,5 +113,15 @@ public class User extends Auditable
     public void setPassword(String password)
     {
         this.password = password;
+    }
+
+    public List<Problem> getProblems()
+    {
+        return problems;
+    }
+
+    public void setProblems(List<Problem> problems)
+    {
+        this.problems = problems;
     }
 }

@@ -1,6 +1,10 @@
 package com.personalprojects.projectmanagementsystem.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "problemtypes")
@@ -13,6 +17,14 @@ public class ProblemType
     private long problemtypeid;
 
     private String problemtype;
+
+    /**
+     * List of problems associated with this problemtype. Does not get saved in the database
+     * Forms a One-to-Many relationship with Problems. One problem type to many problems
+     */
+    @OneToMany(mappedBy = "problem", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnoreProperties(value = "problem", allowSetters = true)
+    private List<Problem> problems = new ArrayList<>();
 
     // Constructors
 
@@ -48,5 +60,15 @@ public class ProblemType
     public void setProblemtype(String problemtype)
     {
         this.problemtype = problemtype;
+    }
+
+    public List<Problem> getProblems()
+    {
+        return problems;
+    }
+
+    public void setProblems(List<Problem> problems)
+    {
+        this.problems = problems;
     }
 }

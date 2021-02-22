@@ -1,6 +1,10 @@
 package com.personalprojects.projectmanagementsystem.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "statustypes")
@@ -13,6 +17,14 @@ public class StatusType
     private long statustypeid;
 
     private String status;
+
+    /**
+     * List of problems associated with this status type. Does not get save in the database
+     * Forms a One-to-Many relationship with Problems. One status type to many problems
+     */
+    @OneToMany(mappedBy = "problem", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnoreProperties(value = "problem", allowSetters = true)
+    private List<Problem> problems = new ArrayList<>();
 
     // Constructor
 
@@ -47,5 +59,15 @@ public class StatusType
     public void setStatus(String status)
     {
         this.status = status;
+    }
+
+    public List<Problem> getProblems()
+    {
+        return problems;
+    }
+
+    public void setProblems(List<Problem> problems)
+    {
+        this.problems = problems;
     }
 }
