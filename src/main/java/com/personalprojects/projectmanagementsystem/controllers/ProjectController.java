@@ -27,7 +27,7 @@ public class ProjectController
      */
     //http://localhost:2019/projects/projects
     @GetMapping(value = "/projects", produces = {"application/json"})
-    public ResponseEntity<?> listAllProjcts()
+    public ResponseEntity<?> listAllProjects()
     {
         List<Project> projectList = projectService.findAllProjects();
         return new ResponseEntity<>(projectList, HttpStatus.OK);
