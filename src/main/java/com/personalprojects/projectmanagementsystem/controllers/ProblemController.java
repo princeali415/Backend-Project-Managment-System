@@ -22,8 +22,8 @@ public class ProblemController
     // GET REQUESTS
 
     // get all problems
-    //http://localhost:2019/problems/problem  // Not working same 500 error ask john or jamie
-    @GetMapping(value = "/problem", produces = "application/json")
+    //http://localhost:2019/problems/problems  // Not working same 500 error ask john or jamie
+    @GetMapping(value = "/problems", produces = "application/json")
     public ResponseEntity<?> listAllProblems()
     {
         List<Problem> allProblems = problemService.findAllProblems();
