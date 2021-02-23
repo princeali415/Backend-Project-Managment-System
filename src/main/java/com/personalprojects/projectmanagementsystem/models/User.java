@@ -29,7 +29,7 @@ public class User extends Auditable
     @ManyToOne
     @JoinColumn(name = "roletypeid", nullable = false)
     @JsonIgnoreProperties(value = "users", allowSetters = true)
-    private User user;
+    private User userrole;
 
     private String email;
 
@@ -39,8 +39,8 @@ public class User extends Auditable
      * List of problems associated with this user. Does not get save in the database
      * Forms a One-to-Many relationship with problems. One user to many problems
      */
-    @OneToMany(mappedBy = "userrole", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonIgnoreProperties(value = "userrole", allowSetters = true)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnoreProperties(value = "user", allowSetters = true)
     private List<Problem> problems = new ArrayList<>();
 
     // Constructors
@@ -53,12 +53,12 @@ public class User extends Auditable
 
     public User(
         String username,
-        User user,
+        User userrole,
         String email,
         String password)
     {
         this.username = username;
-        this.user = user;
+        this.userrole = userrole;
         this.email = email;
         this.password = password;
     }
@@ -85,14 +85,14 @@ public class User extends Auditable
         this.username = username;
     }
 
-    public User getUser()
+    public User getUserRole()
     {
-        return user;
+        return userrole;
     }
 
-    public void setUser(User user)
+    public void setUserRole(User userrole)
     {
-        this.user = user;
+        this.userrole = userrole;
     }
 
     public String getEmail()

@@ -23,8 +23,8 @@ public class RoleType
      * Forms a One-to-Many relationship with Users. One role to many users
      */
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonIgnoreProperties(value = "user", allowSetters = true)
+    @OneToMany(mappedBy = "userrole", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnoreProperties(value = "userrole", allowSetters = true)
     private List<User> users = new ArrayList<>();
 
     // Constructor

@@ -46,7 +46,7 @@ public class Problem extends Auditable
     @ManyToOne
     @JoinColumn(name = "userid", nullable = false)
     @JsonIgnoreProperties(value = "problems", allowSetters = true)
-    private Problem userrole;
+    private Problem user;
 
     /**
      * A foreign key to status type table
@@ -71,14 +71,14 @@ public class Problem extends Auditable
         String problemdescription,
         Problem problemtype,
         Problem project,
-        Problem userrole,
+        Problem user,
         Problem status)
     {
         this.problemname = problemname;
         this.problemdescription = problemdescription;
         this.problemtype = problemtype;
         this.project = project;
-        this.userrole = userrole;
+        this.user = user;
         this.status = status;
     }
 
@@ -135,14 +135,14 @@ public class Problem extends Auditable
         this.project = project;
     }
 
-    public Problem getUserrole()
+    public Problem getUser()
     {
-        return userrole;
+        return user;
     }
 
-    public void setUserrole(Problem userrole)
+    public void setUser(Problem user)
     {
-        this.userrole = userrole;
+        this.user = user;
     }
 
     public Problem getStatus()
