@@ -4,7 +4,9 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "roletypes")
@@ -25,7 +27,7 @@ public class RoleType
 
     @OneToMany(mappedBy = "userrole", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnoreProperties(value = "userrole", allowSetters = true)
-    private List<User> users = new ArrayList<>();
+    private Set<User> users = new HashSet<>();  // does this need to be a set?
 
     // Constructor
 
@@ -62,14 +64,5 @@ public class RoleType
     {
         this.roletype = roletype;
     }
-
-    public List<User> getUsers()
-    {
-        return users;
-    }
-
-    public void setUsers(List<User> users)
-    {
-        this.users = users;
-    }
+    
 }

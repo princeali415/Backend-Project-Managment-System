@@ -5,7 +5,9 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 
 @Entity
@@ -29,7 +31,7 @@ public class User extends Auditable
     @ManyToOne
     @JoinColumn(name = "roletypeid", nullable = false)
     @JsonIgnoreProperties(value = "users", allowSetters = true)
-    private User userrole;
+    private RoleType userrole;
 
     private String email;
 
@@ -41,7 +43,7 @@ public class User extends Auditable
      */
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnoreProperties(value = "user", allowSetters = true)
-    private List<Problem> problems = new ArrayList<>();
+    private Set<Problem> problems = new HashSet<>();
 
     // Constructors
 
@@ -53,7 +55,7 @@ public class User extends Auditable
 
     public User(
         String username,
-        User userrole,
+        RoleType userrole,
         String email,
         String password)
     {
@@ -85,12 +87,12 @@ public class User extends Auditable
         this.username = username;
     }
 
-    public User getUserRole()
+    public RoleType getUserRole()
     {
         return userrole;
     }
 
-    public void setUserRole(User userrole)
+    public void setUserRole(RoleType userrole)
     {
         this.userrole = userrole;
     }
@@ -115,12 +117,12 @@ public class User extends Auditable
         this.password = password;
     }
 
-    public List<Problem> getProblems()
+    public Set<Problem> getProblems()
     {
         return problems;
     }
 
-    public void setProblems(List<Problem> problems)
+    public void setProblems(Set<Problem> problems)
     {
         this.problems = problems;
     }

@@ -26,7 +26,7 @@ public class Problem extends Auditable
     @ManyToOne
     @JoinColumn(name = "problemtypeid", nullable = false)
     @JsonIgnoreProperties(value = "problems", allowSetters = true)
-    private Problem problemtype;
+    private ProblemType problemtype;
 
     /**
      * A foreign key to project table
@@ -36,7 +36,7 @@ public class Problem extends Auditable
     @ManyToOne
     @JoinColumn(name = "projectid", nullable = false)
     @JsonIgnoreProperties(value = "problems", allowSetters = true)
-    private Problem project;
+    private Project project;
 
     /**
      * A foreign key to user table
@@ -46,7 +46,7 @@ public class Problem extends Auditable
     @ManyToOne
     @JoinColumn(name = "userid", nullable = false)
     @JsonIgnoreProperties(value = "problems", allowSetters = true)
-    private Problem user;
+    private User user;
 
     /**
      * A foreign key to status type table
@@ -56,7 +56,7 @@ public class Problem extends Auditable
     @ManyToOne
     @JoinColumn(name = "statustypeid", nullable = false)
     @JsonIgnoreProperties(value = "problems", allowSetters = true)
-    private Problem status;
+    private StatusType status;
 
     // Constructors
 
@@ -69,10 +69,10 @@ public class Problem extends Auditable
     public Problem(
         String problemname,
         String problemdescription,
-        Problem problemtype,
-        Problem project,
-        Problem user,
-        Problem status)
+        ProblemType problemtype,
+        Project project,
+        User user,
+        StatusType status)
     {
         this.problemname = problemname;
         this.problemdescription = problemdescription;
@@ -115,42 +115,42 @@ public class Problem extends Auditable
         this.problemdescription = problemdescription;
     }
 
-    public Problem getProblemtype()
+    public ProblemType getProblemtype()
     {
         return problemtype;
     }
 
-    public void setProblemtype(Problem problemtype)
+    public void setProblemtype(ProblemType problemtype)
     {
         this.problemtype = problemtype;
     }
 
-    public Problem getProject()
+    public Project getProject()
     {
         return project;
     }
 
-    public void setProject(Problem project)
+    public void setProject(Project project)
     {
         this.project = project;
     }
 
-    public Problem getUser()
+    public User getUser()
     {
         return user;
     }
 
-    public void setUser(Problem user)
+    public void setUser(User user)
     {
         this.user = user;
     }
 
-    public Problem getStatus()
+    public StatusType getStatus()
     {
         return status;
     }
 
-    public void setStatus(Problem status)
+    public void setStatus(StatusType status)
     {
         this.status = status;
     }

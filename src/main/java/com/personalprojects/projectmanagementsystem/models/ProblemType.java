@@ -4,7 +4,9 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "problemtypes")
@@ -24,7 +26,7 @@ public class ProblemType
      */
     @OneToMany(mappedBy = "problemtype", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnoreProperties(value = "problemtype", allowSetters = true)
-    private List<Problem> problems = new ArrayList<>();
+    private Set<Problem> problems = new HashSet<>();  // this needs to be set or list?
 
     // Constructors
 
@@ -62,12 +64,12 @@ public class ProblemType
         this.problemtype = problemtype;
     }
 
-    public List<Problem> getProblems()
+    public Set<Problem> getProblems()
     {
         return problems;
     }
 
-    public void setProblems(List<Problem> problems)
+    public void setProblems(Set<Problem> problems)
     {
         this.problems = problems;
     }

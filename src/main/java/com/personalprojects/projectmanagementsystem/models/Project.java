@@ -4,7 +4,9 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "projects")
@@ -26,7 +28,7 @@ public class Project extends Auditable
      */
     @OneToMany(mappedBy = "project", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnoreProperties(value = "project", allowSetters = true)
-    private List<Problem> problems = new ArrayList<>();
+    private Set<Problem> problems = new HashSet<>();
 
     //Constructors
 
@@ -76,12 +78,12 @@ public class Project extends Auditable
         this.projectdescription = projectdescription;
     }
 
-    public List<Problem> getProblems()
+    public Set<Problem> getProblems()
     {
         return problems;
     }
 
-    public void setProblems(List<Problem> problems)
+    public void setProblems(Set<Problem> problems)
     {
         this.problems = problems;
     }
