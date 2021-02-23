@@ -26,8 +26,8 @@ public class ProblemController
     @GetMapping(value = "/problems", produces = "application/json")
     public ResponseEntity<?> listAllProblems()
     {
-        List<Problem> allProblems = problemService.findAllProblems();
-        return new ResponseEntity<>(allProblems, HttpStatus.OK);
+        List<Problem> problemList = problemService.findAllProblems();
+        return new ResponseEntity<>(problemList, HttpStatus.OK);
     }
 
     // get  problem by problemid
