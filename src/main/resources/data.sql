@@ -33,9 +33,9 @@ VALUES (1, 'Open Ticket'),
 
 INSERT INTO users (userid, username, roletypeid, email, password, createdby, createddate, lastmodifiedby,
                    lastmodifieddate)
-VALUES (1, 'Hussain Ali', 1, 'hussain@gmail.com', '123456789', 'SYSTEM', CURRENT_TIMESTAMP, 'SYSTEM',
+VALUES (1, 'Hussain Ali', 1, 'hussain@gmail.com', 'password', 'SYSTEM', CURRENT_TIMESTAMP, 'SYSTEM',
         CURRENT_TIMESTAMP),
-       (2, 'Ruben Ramirez', 2, 'ruben@gmail.com', '987654321', 'SYSTEM', CURRENT_TIMESTAMP, 'SYSTEM',
+       (2, 'Ruben Ramirez', 2, 'ruben@gmail.com', 'password', 'SYSTEM', CURRENT_TIMESTAMP, 'SYSTEM',
         CURRENT_TIMESTAMP),
        (3, 'Chandler Roselli', 2, 'chandler@gmail.com', 'codingiscool', 'SYSTEM', CURRENT_TIMESTAMP, 'SYSTEM',
         CURRENT_TIMESTAMP);
