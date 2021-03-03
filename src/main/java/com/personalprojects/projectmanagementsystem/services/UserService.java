@@ -1,6 +1,7 @@
 package com.personalprojects.projectmanagementsystem.services;
 
 import com.personalprojects.projectmanagementsystem.models.User;
+import com.personalprojects.projectmanagementsystem.views.ProblemCountByUsername;
 
 import java.util.List;
 
@@ -18,4 +19,6 @@ public interface UserService
      * @return The User with the given name or throws an exception if not found.
      */
     User findByName(String name);
+
+    List<ProblemCountByUsername> getProblemCountByUsername();
 }

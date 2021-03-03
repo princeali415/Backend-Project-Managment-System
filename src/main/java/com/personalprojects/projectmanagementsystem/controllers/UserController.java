@@ -2,6 +2,7 @@ package com.personalprojects.projectmanagementsystem.controllers;
 
 import com.personalprojects.projectmanagementsystem.models.User;
 import com.personalprojects.projectmanagementsystem.services.UserService;
+import com.personalprojects.projectmanagementsystem.views.ProblemCountByUsername;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -37,5 +38,13 @@ public class UserController
     {
         User user = userService.findUserById(userid);
         return new ResponseEntity<>(user, HttpStatus.OK);
+    }
+
+    // Get problem counts by username grouped by userid
+    @GetMapping(value = "/problems", produces = "application/json")
+    public ResponseEntity<?> getProblemCountByUsername()
+    {
+        List<ProblemCountByUsername> myList = userService.getProblemCountByUsername();
+        return new ResponseEntity<>(myList, HttpStatus.OK);
     }
 }

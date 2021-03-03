@@ -3,6 +3,7 @@ package com.personalprojects.projectmanagementsystem.services;
 import com.personalprojects.projectmanagementsystem.exceptions.ResourceNotFoundException;
 import com.personalprojects.projectmanagementsystem.models.User;
 import com.personalprojects.projectmanagementsystem.repositories.UserRepository;
+import com.personalprojects.projectmanagementsystem.views.ProblemCountByUsername;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -47,4 +48,9 @@ public class UserServiceImpl implements UserService
         return uu;
     }
 
+    @Override
+    public List<ProblemCountByUsername> getProblemCountByUsername()
+    {
+        return null;
+    }
 }

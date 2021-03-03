@@ -4,6 +4,6 @@ public class ResourceNotFoundException extends RuntimeException
 {
     public ResourceNotFoundException(String message)
     {
-        super("Error from a 8-up PMS Application " + message);
+        super("Error from 8-up PMS Application " + message);
     }
 }
