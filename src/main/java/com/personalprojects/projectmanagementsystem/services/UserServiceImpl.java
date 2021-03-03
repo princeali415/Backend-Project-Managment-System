@@ -51,7 +51,7 @@ public class UserServiceImpl implements UserService
     @Override
     public List<ProblemCountByUsername> getProblemCountByUsername()
     {
-        List<ProblemCountByUsername> problemCountByUsernames = userRepository.getProblemCountByUsername();
-        return problemCountByUsernames;
+        List<ProblemCountByUsername> count = userRepository.getProblemCountByUsername();
+        return count;
     }
 }
