@@ -18,7 +18,7 @@ import java.util.List;
 public class UserController
 {
     @Autowired
-    private UserService userService;
+    private UserService userService; 
 
     // GET REQUEST'S
     // Get all users
