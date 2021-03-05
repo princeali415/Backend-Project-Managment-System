@@ -18,8 +18,10 @@ public class Project extends Auditable
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long projectid;
 
+    @Column(nullable = false, unique = true)
     private String projectname;
 
+    @Column(nullable = false)
     private String projectdescription;
 
     /**

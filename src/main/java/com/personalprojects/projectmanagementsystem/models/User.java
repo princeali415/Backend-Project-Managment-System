@@ -2,6 +2,7 @@ package com.personalprojects.projectmanagementsystem.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
@@ -22,6 +23,7 @@ public class User extends Auditable
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long userid;
 
+    @Column(nullable = false, unique = true)
     private String username;
 
     /**
@@ -35,8 +37,11 @@ public class User extends Auditable
     @JsonIgnoreProperties(value = "users", allowSetters = true)
     private RoleType userrole;
 
+    @Column(nullable = false, unique = true)
     private String email;
 
+    @Column(nullable = false)
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
 
     /**
@@ -88,7 +93,7 @@ public class User extends Auditable
     {
         this.username = username;
     }
-    
+
 
     public RoleType getUserrole()
     {

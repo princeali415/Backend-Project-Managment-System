@@ -14,8 +14,10 @@ public class Problem extends Auditable
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long problemid;
 
+    @Column(nullable = false)
     private String problemname;
 
+    @Column(nullable = false)
     private String problemdescription;
 
     /**
