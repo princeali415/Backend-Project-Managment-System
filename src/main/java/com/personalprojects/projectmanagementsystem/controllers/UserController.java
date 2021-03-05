@@ -18,12 +18,12 @@ import java.util.List;
 public class UserController
 {
     @Autowired
-    private UserService userService; 
+    private UserService userService;
 
     // GET REQUEST'S
     // Get all users
     // http://localhost:2019/users/users
-    @GetMapping(value = "/users", produces = "application/json") //Not working 500 error
+    @GetMapping(value = "/users", produces = "application/json")
     public ResponseEntity<?> listAllUsers()
     {
         List<User> userList = userService.findAllUsers();
@@ -32,12 +32,20 @@ public class UserController
 
 
     // Get user by userid
-    // http://localhost:2019/users/user/{userid} // not working need to fix, 500 internal server error
+    // http://localhost:2019/users/user/{userid}
     @GetMapping(value = "/user/{userid}", produces = "application/json")
     public ResponseEntity<?> findUserById(@PathVariable long userid)
     {
         User user = userService.findUserById(userid);
         return new ResponseEntity<>(user, HttpStatus.OK);
+    }
+
+    // Get user by username
+    @GetMapping(value = "/user/name/{username}", produces = "application/json")
+    public ResponseEntity<?> getUserByName(@PathVariable String username)
+    {
+        User u = userService.findByName(username);
+        return new ResponseEntity<>(u, HttpStatus.OK);
     }
 
     // Get problem counts by username grouped by userid
