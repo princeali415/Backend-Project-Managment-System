@@ -54,4 +54,25 @@ public class UserServiceImpl implements UserService
         List<ProblemCountByUsername> count = userRepository.getProblemCountByUsername();
         return count;
     }
+
+    @Transactional
+    @Override
+    public User save(User user)
+    {
+        User newUser = new User();
+
+        if (user.getUserid() != 0)
+        {
+            userRepository.findById(user.getUserid())
+                .orElseThrow(() -> new ResourceNotFoundException("User id " + user.getUserid() + " not found!"));
+            newUser.setUserid(user.getUserid());
+        }
+        newUser.setUsername(user.getUsername());
+        newUser.setUserrole(user.getUserrole());
+        newUser.setEmail(user.getEmail());
+        newUser.setPasswordNoEncrypt(user.getPassword());
+
+        return userRepository.save(newUser);
+    }
+
 }

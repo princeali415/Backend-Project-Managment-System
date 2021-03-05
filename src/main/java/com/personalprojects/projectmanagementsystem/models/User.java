@@ -88,13 +88,14 @@ public class User extends Auditable
     {
         this.username = username;
     }
+    
 
-    public RoleType getUserRole()
+    public RoleType getUserrole()
     {
         return userrole;
     }
 
-    public void setUserRole(RoleType userrole)
+    public void setUserrole(RoleType userrole)
     {
         this.userrole = userrole;
     }

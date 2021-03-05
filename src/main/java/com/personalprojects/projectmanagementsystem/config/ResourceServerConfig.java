@@ -46,7 +46,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter
                 "/swagger-ui.html",
                 "/v2/api-docs",
                 "/webjars/**",
-                "/createnewuser",
+                "/createaccount",
                 "/users/**",
                 "/problems/**",
                 "/projects/**")

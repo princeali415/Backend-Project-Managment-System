@@ -21,4 +21,6 @@ public interface UserService
     User findByName(String name);
 
     List<ProblemCountByUsername> getProblemCountByUsername();
+
+    User save(User user);
 }
