@@ -4,5 +4,5 @@ public interface ProblemCountByUsername
 {
     String getUsername();
     long getUserid();
-    int getProblemCount();
+    int getProblemcount();
 }
