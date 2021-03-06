@@ -163,8 +163,19 @@ public class Problem extends Auditable
     {
         return createdby;
     }
+
+    public void setCreatedby()
+    {
+        this.createdby = createdby;
+    }
+
     public String getLastmodifiedby()
     {
         return lastmodifiedby;
+    }
+
+    public void setLastmodifiedby()
+    {
+        this.lastmodifiedby = lastmodifiedby;
     }
 }
