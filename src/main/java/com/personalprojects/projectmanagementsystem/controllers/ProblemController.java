@@ -59,15 +59,16 @@ public class ProblemController
     @PostMapping(value = "/problem", consumes = "application/json", produces = "application/json")
     public ResponseEntity<?> addNewProblem(@Valid @RequestBody Problem newproblem) throws URISyntaxException
     {
+        newproblem.setProblemid(0);
         newproblem = problemService.save(newproblem);
 
         // set the location header for the newly created resource
         HttpHeaders responseHeaders = new HttpHeaders();
-        URI newUserURI = ServletUriComponentsBuilder.fromCurrentRequest()
+        URI newProblemURI = ServletUriComponentsBuilder.fromCurrentRequest()
             .path("{/problemid}")
             .buildAndExpand(newproblem.getProblemid())
             .toUri();
-        responseHeaders.setLocation(newUserURI);
+        responseHeaders.setLocation(newProblemURI);
 
         return new ResponseEntity<>(null, responseHeaders, HttpStatus.CREATED);
     }

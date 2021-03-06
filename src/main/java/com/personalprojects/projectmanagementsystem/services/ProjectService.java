@@ -12,4 +12,8 @@ public interface ProjectService
     Project findProjectById(long id); // get project by id
 
     List<ProblemListGroupedByProject> findAllProjectsWithProblemName();
+
+    Project save(Project project);
+
+    void delete(long id);
 }
