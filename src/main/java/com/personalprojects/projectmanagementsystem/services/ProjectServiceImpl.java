@@ -3,6 +3,7 @@ package com.personalprojects.projectmanagementsystem.services;
 import com.personalprojects.projectmanagementsystem.exceptions.ResourceNotFoundException;
 import com.personalprojects.projectmanagementsystem.models.Project;
 import com.personalprojects.projectmanagementsystem.repositories.ProjectRepository;
+import com.personalprojects.projectmanagementsystem.views.ProblemListGroupedByProject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -33,5 +34,12 @@ public class ProjectServiceImpl implements ProjectService
             .orElseThrow(() -> new ResourceNotFoundException("Project id " + id + " not found!"));
 
         return project;
+    }
+
+    @Override
+    public List<ProblemListGroupedByProject> findAllProjectsWithProblemName()
+    {
+        List<ProblemListGroupedByProject> projectList = projectRepository.getProblemListGroupedByProject();
+        return projectList;
     }
 }

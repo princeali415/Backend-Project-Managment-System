@@ -4,6 +4,7 @@ import com.personalprojects.projectmanagementsystem.exceptions.ResourceNotFoundE
 import com.personalprojects.projectmanagementsystem.models.User;
 import com.personalprojects.projectmanagementsystem.repositories.UserRepository;
 import com.personalprojects.projectmanagementsystem.views.ProblemCountByUsername;
+import com.personalprojects.projectmanagementsystem.views.ProblemListByUsername;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.oauth2.client.resource.OAuth2AccessDeniedException;
 import org.springframework.stereotype.Service;
@@ -56,6 +57,13 @@ public class UserServiceImpl implements UserService
     {
         List<ProblemCountByUsername> count = userRepository.getProblemCountByUsername();
         return count;
+    }
+
+    @Override
+    public List<ProblemListByUsername> getProblemListByUsername()
+    {
+        List<ProblemListByUsername> problemList = userRepository.getProblemListByUsername();
+        return problemList;
     }
 
     @Transactional

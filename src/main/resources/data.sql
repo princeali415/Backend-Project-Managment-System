@@ -33,7 +33,7 @@ VALUES (1, 'Open Ticket'),
 
 INSERT INTO users (userid, username, roletypeid, email, password, createdby, createddate, lastmodifiedby,
                    lastmodifieddate)
-VALUES (1, 'Hussain Ali', 1, 'hussain@gmail.com', 'password', 'SYSTEM', CURRENT_TIMESTAMP, 'SYSTEM',
+VALUES (1, 'Hussain Ali', 1, 'hussain@gmail.com', '$2y$12$E9WRCEnOAX4QLpfYgFRo/.xvzH7tyDjQ7oDEpMu/ewtnMd0dj4FNS', 'SYSTEM', CURRENT_TIMESTAMP, 'SYSTEM',
         CURRENT_TIMESTAMP),
        (2, 'Ruben Ramirez', 2, 'ruben@gmail.com', 'password', 'SYSTEM', CURRENT_TIMESTAMP, 'SYSTEM',
         CURRENT_TIMESTAMP),
