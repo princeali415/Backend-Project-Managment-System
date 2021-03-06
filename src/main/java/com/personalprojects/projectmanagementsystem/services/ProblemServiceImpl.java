@@ -2,6 +2,7 @@ package com.personalprojects.projectmanagementsystem.services;
 
 import com.personalprojects.projectmanagementsystem.models.Problem;
 import com.personalprojects.projectmanagementsystem.repositories.ProblemRepository;
+import com.personalprojects.projectmanagementsystem.views.ProblemList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -23,6 +24,13 @@ public class ProblemServiceImpl implements ProblemService
         List<Problem> problemList = new ArrayList<>();
         problemRepository.findAll().iterator().forEachRemaining(problemList::add);
 
+        return problemList;
+    }
+
+    @Override
+    public List<ProblemList> findAllProblemsJoinedList()
+    {
+        List<ProblemList> problemList = problemRepository.getAllProblemsJoinedList();
         return problemList;
     }
 

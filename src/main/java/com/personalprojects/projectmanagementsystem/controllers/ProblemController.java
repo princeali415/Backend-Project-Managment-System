@@ -2,6 +2,7 @@ package com.personalprojects.projectmanagementsystem.controllers;
 
 import com.personalprojects.projectmanagementsystem.models.Problem;
 import com.personalprojects.projectmanagementsystem.services.ProblemService;
+import com.personalprojects.projectmanagementsystem.views.ProblemList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,6 +28,17 @@ public class ProblemController
     public ResponseEntity<?> listAllProblems()
     {
         List<Problem> problemList = problemService.findAllProblems();
+
+        return new ResponseEntity<>(problemList, HttpStatus.OK);
+    }
+
+    // get all problems custom view joined list
+    //http://localhost:2019/problems/problemsjoinedlist
+    @GetMapping(value = "/problemsjoinedlist", produces = "application/json")
+    public ResponseEntity<?> listAllProblemsCustom()
+    {
+        List<ProblemList> problemList = problemService.findAllProblemsJoinedList();
+
         return new ResponseEntity<>(problemList, HttpStatus.OK);
     }
 
@@ -36,6 +48,7 @@ public class ProblemController
     public ResponseEntity<?> findProblemById(@PathVariable long problemid)
     {
         Problem problem = problemService.findProblemById(problemid);
+
         return new ResponseEntity<>(problem, HttpStatus.OK);
     }
 }

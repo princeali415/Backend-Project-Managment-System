@@ -158,4 +158,13 @@ public class Problem extends Auditable
     }
 
     // add getter for createddate;
+
+    public String getCreatedby()
+    {
+        return createdby;
+    }
+    public String getLastmodifiedby()
+    {
+        return lastmodifiedby;
+    }
 }
