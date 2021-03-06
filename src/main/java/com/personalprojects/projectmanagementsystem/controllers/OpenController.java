@@ -25,6 +25,7 @@ public class OpenController
     @Autowired
     private UserService userService;
 
+    // create new user
     @PostMapping(value = "/createaccount", consumes = "application/json")
     public ResponseEntity<?> createNewUser(@Valid @RequestBody User newuser) throws URISyntaxException
     {

@@ -5,6 +5,7 @@ import com.personalprojects.projectmanagementsystem.models.User;
 import com.personalprojects.projectmanagementsystem.repositories.UserRepository;
 import com.personalprojects.projectmanagementsystem.views.ProblemCountByUsername;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.oauth2.client.resource.OAuth2AccessDeniedException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -18,6 +19,8 @@ public class UserServiceImpl implements UserService
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private HelperFunctions helperFunctions;
 
     @Override
     public List<User> findAllUsers()
@@ -75,4 +78,29 @@ public class UserServiceImpl implements UserService
         return userRepository.save(newUser);
     }
 
+    @Override
+    public User update(User user, long id)
+    {
+        User currentuser = findUserById(id);
+
+        if (helperFunctions.isAuthorizedToMakeChange(currentuser.getUsername()))
+        {
+            if (user.getUsername() != null)
+            {
+                currentuser.setUsername(user.getUsername());
+            }
+            if (user.getUserrole() != null)
+            {
+                currentuser.setUserrole(user.getUserrole());
+            }
+            if (user.getEmail() != null)
+            {
+                currentuser.setEmail(user.getEmail());
+            }
+            return userRepository.save(currentuser);
+        } else
+        {
+            throw new OAuth2AccessDeniedException();
+        }
+    }
 }

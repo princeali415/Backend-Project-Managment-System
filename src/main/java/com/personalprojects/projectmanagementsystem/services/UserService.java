@@ -23,4 +23,6 @@ public interface UserService
     List<ProblemCountByUsername> getProblemCountByUsername();
 
     User save(User user);
+
+    User update(User user, long id);
 }
