@@ -64,4 +64,23 @@ public class UserController
 
         return new ResponseEntity<>(HttpStatus.OK);
     }
+
+    //PATCH Request
+    // Updates user record associated with the given id with provided data
+    @PatchMapping(value = "/user/{userid}", consumes = "application/json")
+    public ResponseEntity<?> updateUser(@RequestBody User updateUser, @PathVariable long userid)
+    {
+        userService.update(updateUser, userid);
+
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    //DELETE Request
+    // Given user id, delete user
+    @DeleteMapping(value = "/user/{userid}")
+    public ResponseEntity<?> deleteUserById(@PathVariable long userid)
+    {
+        userService.delete(userid);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 }

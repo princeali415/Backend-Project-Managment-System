@@ -103,4 +103,12 @@ public class UserServiceImpl implements UserService
             throw new OAuth2AccessDeniedException();
         }
     }
+
+    @Override
+    public void delete(long id)
+    {
+        userRepository.findById(id)
+            .orElseThrow(() -> new ResourceNotFoundException("User id "+ id +" not found!"));
+        userRepository.deleteById(id);
+    }
 }
