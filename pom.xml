@@ -108,7 +108,7 @@
     </dependencies>
 
     <build>
-        <finalName>projectmanagementsystem-hussain-ali</finalName>
+        <finalName>hali-projectmanagementsystem</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
