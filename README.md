@@ -79,3 +79,7 @@ The table layouts are as follows:
 * Problems has a foreign key to Status_Types this means:
     * Problems has a Many to One relationship to Status_Type_Id and
     * Status_Type_Id has a One to Many relationship to Problems 
+
+
+## API Documentation
+<a href="https://documenter.getpostman.com/view/14315106/Tz5jfg2r">API POSTMAN DOCUMENTATION</a>
