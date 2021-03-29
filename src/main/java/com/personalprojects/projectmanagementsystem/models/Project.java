@@ -24,13 +24,17 @@ public class Project extends Auditable
     @Column(nullable = false)
     private String projectdescription;
 
+//    @ManyToOne
+//    @JoinColumn(name = "teamlist", nullable = false)
+//    @JsonIgnoreProperties(value = "projects", allowSetters = true)
+//    private User teamlist;
     /**
      * List of problems associated with this project. Does not get save in the database
      * Forms a One-to-Many relationship with Problems. One project to many problems
      */
     @OneToMany(mappedBy = "project", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnoreProperties(value = "project", allowSetters = true)
-    private Set<Problem> problems = new HashSet<>();
+    private List<Problem> problems = new ArrayList<>();
 
     //Constructors
 
@@ -46,6 +50,7 @@ public class Project extends Auditable
         this.projectname = projectname;
         this.projectdescription = projectdescription;
     }
+
 
     // Getters and Setters
 
@@ -80,12 +85,13 @@ public class Project extends Auditable
         this.projectdescription = projectdescription;
     }
 
-    public Set<Problem> getProblems()
+
+    public List<Problem> getProblems()
     {
         return problems;
     }
 
-    public void setProblems(Set<Problem> problems)
+    public void setProblems(List<Problem> problems)
     {
         this.problems = problems;
     }

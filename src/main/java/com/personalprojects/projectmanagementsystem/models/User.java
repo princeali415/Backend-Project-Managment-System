@@ -52,6 +52,14 @@ public class User extends Auditable
     @JsonIgnoreProperties(value = "user", allowSetters = true)
     private Set<Problem> problems = new HashSet<>();
 
+    /**
+     * List of projects associated with this user. Does not get save in the database
+     * Forms a One-to-Many relationship with users. One user to many projects
+     */
+//    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+//    @JsonIgnoreProperties(value = "teamlist", allowSetters = true)
+//    private List<Project> projects = new ArrayList<>();
+
     // Constructors
 
 
@@ -153,6 +161,7 @@ public class User extends Auditable
     {
         this.problems = problems;
     }
+
 
     /**
      * Internally, user security requires a list of authorities, roles, that the user has. This method is a simple way to provide those.

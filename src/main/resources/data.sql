@@ -44,8 +44,8 @@ INSERT INTO projects (projectid, projectname, projectdescription, createdby, cre
                       lastmodifieddate)
 VALUES (1, '8-up Project Management System', 'lean pms for developers', 'SYSTEM', CURRENT_TIMESTAMP, 'SYSTEM',
         CURRENT_TIMESTAMP),
-       (2, 'Anywhere-Fitness', 'online fitness class', 'SYSTEM', CURRENT_TIMESTAMP, 'SYSTEM', CURRENT_TIMESTAMP),
-       (3, 'Co-Make', 'community forum', 'SYSTEM', CURRENT_TIMESTAMP, 'SYSTEM', CURRENT_TIMESTAMP);
+       (2, 'Anywhere-Fitness', 'online fitness class','SYSTEM', CURRENT_TIMESTAMP, 'SYSTEM', CURRENT_TIMESTAMP),
+       (3, 'Co-Make', 'community forum','SYSTEM', CURRENT_TIMESTAMP, 'SYSTEM', CURRENT_TIMESTAMP);
 
 INSERT INTO problems (problemid, problemname, problemdescription, problemtypeid, projectid, userid, statustypeid,
                       createdby, createddate, lastmodifiedby, lastmodifieddate)
