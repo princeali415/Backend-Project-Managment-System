@@ -66,7 +66,7 @@ public class ProjectServiceImpl implements ProjectService
 
         newProject.setProjectname(project.getProjectname());
         newProject.setProjectdescription(project.getProjectdescription());
-
+        newProject.setCreatedBy(project.getCreatedBy());
 
 //        newProject.getProblems().clear();
 //        for (Problem p : project.getProblems())

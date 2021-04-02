@@ -95,4 +95,14 @@ public class Project extends Auditable
     {
         this.problems = problems;
     }
+
+    public String getCreatedBy(){
+        return createdby;
+    }
+
+    public void setCreatedBy(String createdby){
+        this.createdby = createdby;
+    }
+
+
 }
